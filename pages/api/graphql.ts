@@ -1,6 +1,14 @@
-import { ApolloServer } from "apollo-server-micro";
+import { ApolloServer } from 'apollo-server-micro';
+import 'reflect-metadata';
+import { buildSchema } from 'type-graphql';
+import { JobsResolver } from '../../src/schema/jobs.resolver';
+
+const schema = await buildSchema({
+  resolvers: [JobsResolver],
+});
 
 const server = new ApolloServer({
+  schema,
 });
 
 export const config = {
@@ -11,7 +19,7 @@ export const config = {
 
 const startServer = server.start();
 
-export default async function handler(req, res) {
+export default async function handler(req: any, res: any) {
   await startServer;
-  await server.createHandler({ path: "/api/graphql" })(req, res);
+  await server.createHandler({ path: '/api/graphql' })(req, res);
 }

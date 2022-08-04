@@ -1,0 +1,12 @@
+query getJobs {
+  jobs {
+    id
+    title 
+    slug
+    tags
+    remotes
+    company
+    cities
+    countries
+  }
+}
