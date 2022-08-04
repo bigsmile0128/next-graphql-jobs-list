@@ -1,7 +1,6 @@
 import { Resolver, Query, Arg } from "type-graphql";
 
 import { Job } from "./jobs";
-// import dogs from "./dogs.json";
 
 @Resolver(Job)
 export class JobsResolver {
