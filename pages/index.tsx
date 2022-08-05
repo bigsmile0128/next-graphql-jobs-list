@@ -16,6 +16,8 @@ export async function getServerSideProps() {
 }
 
 const Home = () => {
+  const { data } = useQuery(["jobs"], () => getJobs());
+  
   return <Box>123</Box>;
 };
 
